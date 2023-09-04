@@ -25,9 +25,14 @@ export default new Router({
           component: () => import('@/pages/Home/Home'),
         },
         {
-          path: '/staking',
-          name: 'Staking',
-          component: () => import('@/pages/Staking/Staking'),
+          path: '/acerca',
+          name: 'Acerca',
+          component: () => import('@/pages/acerca/Acerca'),
+        },
+        {
+          path: '/contacto',
+          name: 'Contacto',
+          component: () => import('@/pages/contacto/Contacto'),
         },
       ],
     },

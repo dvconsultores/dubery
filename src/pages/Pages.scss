@@ -96,7 +96,7 @@
     .v-btn {
       width: max-content;
       height: max-content;
-      background-color: #656565;
+      background-color: #ef3340;
       transition: 0.2s ease-in-out;
     }
     .left:is(:hover, :focus) {
@@ -200,7 +200,7 @@
         align-items: center;
         justify-content: center;
         width: 6%;
-        height: 32%;
+        height: 30%;
         // padding: 3%;
         border-radius: 50% 0 0 50%;
       }
@@ -260,7 +260,7 @@
     .v-btn {
       width: max-content;
       height: max-content;
-      background-color: #656565;
+      background-color: #ef3340;
       transition: 0.2s ease-in-out;
     }
     .right:is(:hover, :focus) {
@@ -276,15 +276,16 @@
     padding: 5%;
     .v-card:is(:hover, :focus) {
       transform: translateY(-1%);
-      box-shadow: inset 0 0 1px 2px #656565 !important;
+      box-shadow: inset 0 0 1px 2px #ef3340 !important;
     }
     .v-card {
       padding: clamp(2em, 3vw, 3em);
-      min-width: 270px !important;
       height: max-content;
       box-shadow: $sombra-cartas !important;
       transition: 0.2s ease-in-out;
       .images {
+        border-radius: 5%; 
+        object-fit: cover;
         width: 100%;
         height: clamp(15em, 19vw, 19em);
       }
@@ -304,8 +305,29 @@
       margin-top: 0.4em
     }
   }
+
+  .acerca {
+    display: flex;
+    background-color: var(--colorFondoCartas);
+    padding: 8%;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+  }
 }
 
+////////////////////////rounded image///////////////////////////////5
+.rounded-image {
+  object-fit: cover; /* Automatically scales the image to fit the container */
+  border-radius: 5%; /* Creates rounded corners with a circular shape */
+  height: 400px !important;
+}
+
+.rounded-image-dialog {
+  object-fit: cover; /* Automatically scales the image to fit the container */
+  border-radius: 5%; /* Creates rounded corners with a circular shape */
+  width: 500px !important;
+  height: 450px !important;
+}
 /////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
 // staking
@@ -329,8 +351,6 @@
 #staking {
   padding-bottom: 6.25em;
   .contup {
-    background: center no-repeat url("../../src/assets/images/fondoStake.png") var(--fondo);
-    background-size: 88%;
     h1 {
       padding-block: clamp(1em, 4vw, 2em);
     }
@@ -338,7 +358,7 @@
       padding-block: clamp(2em, 6vw, 3em);
     }
     .carta {
-      background-color: #656565 !important;
+      background-color: #ef3340 !important;
       padding: clamp(2em, 3vw, 3em);
       box-shadow: $sombra-boton !important;
       span {
@@ -423,7 +443,7 @@
         width: 30%;
       }
       .carta {
-        background-color: #656565 !important;
+        background-color: #ef3340 !important;
         padding: clamp(1em, 2vw, 2em) clamp(0.5em, 1.5vw, 2em);
         box-shadow: $sombra-boton !important;
         width: 70%;

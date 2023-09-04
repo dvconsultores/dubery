@@ -9,7 +9,7 @@
       right
       :overlay-opacity="overlay_opacity"
       :overlay-color="overlay_color"
-      color="#656565"
+      color="#ef3340"
     >
       <!-- list 1 (without submenu)-->
       <v-list>
@@ -26,22 +26,22 @@
           </v-list-item-content>
         </v-list-item>
         <!-- list 2 (with submenu)-->
-        <v-list-item v-for="(item, index) in dataDrawerB" :key="index"
+        <!-- <v-list-item v-for="(item, index) in dataDrawerB" :key="index"
           @mousedown="changeArrow(item)"
           @mouseleave="changeArrowFocusOut(item)"
           :class="{
             openSubmenuADrawer: item.openA,
             openSubmenuBDrawer: item.openB,
           }"
-        >
-          <v-list-item-content>
+        > -->
+          <!-- <v-list-item-content>
             <div class="center">
               <a class="h8-em" style="color:#FFFFFF !important">{{ item.title }}</a>
               <v-icon small color="#FFFFFF !important" v-if="item.open">mdi-chevron-down</v-icon>
               <v-icon small color="#FFFFFF !important" v-else>mdi-chevron-up</v-icon>
             </div>
           </v-list-item-content>
-        </v-list-item>
+        </v-list-item> -->
       </v-list>
     </v-navigation-drawer>
 
@@ -54,7 +54,7 @@
       max-width="244px"
       activator=".openSubmenuADrawer"
     >
-      <v-list color="#656565">
+      <!-- <v-list color="#ef3340">
         <v-list-item
           v-for="(item, i) in dataSubmenuA"
           :key="i"
@@ -66,7 +66,7 @@
             </a>
           </v-list-item-title>
         </v-list-item>
-      </v-list>
+      </v-list> -->
     </v-menu>
   </section>
 </template>
@@ -91,38 +91,13 @@ export default {
           to: "#/",
         },
         {
-          title: "Staking",
-          to: "#/staking"
-        },
-        {
-          title: "Community",
+          title: "Acerca de",
           to: "#",
         },
         {
-          title: "About",
+          title: "Contacto",
           to: "#",
         },
-        {
-          title: "Contact",
-          to: "#",
-        },
-      ],
-      dataDrawerB: [
-        {
-          title: "Languaje",
-          open: true,
-          openA: true,
-        }
-      ],
-      dataSubmenuA: [
-        {
-          title: "English",
-          to: "#",
-        },
-        {
-          title: "Spanish",
-          to: "#",
-        }
       ],
     };
   },

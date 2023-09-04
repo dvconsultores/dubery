@@ -41,7 +41,7 @@
     gap: 1em;
     .toggle {
       z-index: 10;
-      background-color: #656565;
+      background-color: #ef3340;
     }
     .logo {
       width: clamp(6em, 12vw, 12em);
@@ -126,8 +126,4 @@
       }
     }
   }
-}
-
-.no-recovery:hover {
-  cursor: not-allowed;
 }

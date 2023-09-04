@@ -1,15 +1,18 @@
 <template>
   <section id="home" class="align">
+    <Hero ref="hero" />
     <NewCollections ref="newcollections" />
   </section>
 </template>
 
 <script>
+import Hero from './Hero.vue'
 import NewCollections from './NewCollections.vue'
 
 export default {
   name: "Home",
   components: {
+    Hero,
     NewCollections
   },
   data() {

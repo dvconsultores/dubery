@@ -7,11 +7,11 @@
   --colorCartasInverted: #000000;
   --colorCartas2: #f7f7f7;
   --colorCartas3: #ffffff;
-  --colorFondoCartas: #f7f7f7;
+  --colorFondoCartas: #f8e5e5;
   --colorHover: #eeeeee;
-  --colorScroll: #656565;
+  --colorScroll: #ef3340;
   --colorCartaScroll: rgb(224, 224, 224);
-  --colorFooter: #656565;
+  --colorFooter: #ef3340;
   --mix-blend-mode: multiply;
 }
 :is(span, p, h1, h2, h3, h4, h5, h6, .v-list-item__title, .v-btn span, button, label) {
