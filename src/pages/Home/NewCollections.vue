@@ -1,15 +1,8 @@
 <template>
-  <section id="newCollections" class="componentSpace" style="margin-top: -55px">
+  <section id="newCollections" class="componentSpace">
     <aside class="divrow acenter divwrapmobile jendmobile parent">
       <h2 class="h3 align center p">Catálogo</h2>
-      <div class="contright center">
-        <a href="#s" class="h7">More</a>
-        <v-btn class="right" icon>
-          <v-icon medium style="color: #ffffff !important"
-            >mdi-chevron-right</v-icon
-          >
-        </v-btn>
-      </div>
+
     </aside>
 
     <aside
@@ -44,25 +37,44 @@
     </aside>
     <!-- dialog -->
     <v-row justify="center">
-      <v-dialog v-model="dialog" width="auto" max-width="1200">
+      <v-dialog
+        v-model="dialog"
+        fullscreen
+        hide-overlay
+        transition="dialog-bottom-transition"
+        scrollable
+      >
         <v-card color="var(--colorCartas3)">
           <v-card-title>
-            <span class="text-h5">Más información</span>
+            <v-toolbar flat dark color="var(--colorFondoCartas)">
+              <v-btn icon dark @click="dialog = false">
+                <v-icon>mdi-close</v-icon>
+              </v-btn>
+              <v-toolbar-title><span>Más Información</span></v-toolbar-title>
+              <v-spacer></v-spacer>
+              <v-toolbar-items>
+                <v-btn dark text @click="dialog = false">
+                  <v-icon medium style="color: #ffffff !important"
+                    >mdi-chevron-left</v-icon
+                  >
+                  <span class="text-h6">Regresar</span>
+                </v-btn>
+              </v-toolbar-items>
+            </v-toolbar>
           </v-card-title>
           <v-card-text>
-            <v-container>
               <v-row>
-                <v-col cols="14" sm="6" md="6">
+                <v-col cols="12" sm="6" md="6">
                   <v-img
-                    class="bg-grey-lighten-2 rounded-image-dialog"
+                    class="bg-grey-lighten-2 rounded-image-dialog mt-5"
                     :src="image"
                   ></v-img>
                 </v-col>
-                <v-col cols="10" sm="6" md="6" class="pl-1">
+                <v-col cols="12" sm="6" md="6" class="mt-5">
                   <v-card color="var(--colorCartas3)">
                     <span class="text-h6">{{ text }}</span>
                   </v-card>
-                  <div style="text-align: right; font-weight: bold;">
+                  <div style="font-weight: bold" class="mt-15">
                     <a>
                       <img
                         class="logo"
@@ -71,10 +83,9 @@
                       />
                       Comprar con Paypal
                     </a>
-                  </div>  
+                  </div>
                 </v-col>
               </v-row>
-            </v-container>
           </v-card-text>
         </v-card>
       </v-dialog>
