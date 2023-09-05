@@ -92,11 +92,11 @@ export default {
         },
         {
           title: "Acerca de",
-          link: "#/acerca"
+          to: "#/acerca"
         },
         {
           title: "Contacto",
-          link: "#/contacto"
+          to: "#/contacto"
         },
       ],
     };

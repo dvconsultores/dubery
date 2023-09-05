@@ -2,8 +2,8 @@
   <section id="newCollections" class="componentSpace">
     <aside class="divrow acenter divwrapmobile jendmobile parent">
       <h2 class="h3 align center p">Contáctenos</h2>
-      <div class="contright center">
-        <a href="#/" class="h7">More</a>
+      <div class="contright center pr-3">
+        <a href="#/" class="h7">Home</a>
         <v-btn class="right" icon>
           <v-icon medium style="color: #FFFFFF !important">mdi-chevron-right</v-icon>
         </v-btn>
