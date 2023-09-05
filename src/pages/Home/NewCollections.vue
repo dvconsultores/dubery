@@ -72,7 +72,7 @@
                 </v-col>
                 <v-col cols="12" sm="6" md="6" class="mt-5">
                   <v-card color="var(--colorCartas3)">
-                    <span class="text-h6">{{ text }}</span>
+                    <span class="text-h6" style="text-align: justify;">{{ text }}</span>
                   </v-card>
                   <div style="font-weight: bold" class="mt-15">
                     <a>
