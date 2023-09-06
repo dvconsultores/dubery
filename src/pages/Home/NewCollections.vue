@@ -16,8 +16,8 @@
         color="var(--colorCartas3)"
         @click="open(item2)"
       >
-        <img class="images" :src="item2.img" alt="collections images" />
-        <a class="tl h6" @click="open">{{ item2.title }}</a>
+        <img class="images" :src="item2.imagenUrl" alt="collections images" />
+        <a class="tl h6" @click="open">{{ item2.nombre }}</a>
         <aside class="sectdown divcol">
           <div class="space">
             <span class="h7 weight">Precio</span>
@@ -28,10 +28,10 @@
                 src="@/assets/logos/USD.png"
                 alt="near"
               />
-              <span class="price h7 ml-1">{{ item2.usd }} USD</span>
+              <span class="price h7 ml-1">{{ item2.precio }} USD</span>
             </div>
           </div>
-          <span class="h7 weight tend"> ~ VES {{ item2.localfiat }} </span>
+          <span class="h7 weight tend"> ~ VES {{ item2.precio * ves }} </span>
         </aside>
       </v-card>
     </aside>
@@ -74,7 +74,7 @@
                   <v-card color="var(--colorCartas3)">
                     <span class="text-h6"><div style="text-align: justify; padding-right: 3px;">{{ text }}</div></span>
                   </v-card>
-                  <div style="font-weight: bold" class="mt-15">
+                  <div v-if="ispaypal" style="font-weight: bold" class="mt-15">
                     <a>
                       <img
                         class="logo"
@@ -101,79 +101,47 @@ export default {
       dialog: false,
       image: "",
       text: "",
-      dataNewCollections: [
-        {
-          collection: [
-            {
-              title: "Model A",
-              img: "https://bafkreiec67ylmi2fits4izxlcjhbyejaytuv73jgbyklaezwlc5e3w7k6e.ipfs.nftstorage.link/",
-              usd: "20",
-              localfiat: "252.45",
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi lacus sed viverra tellus. Donec ultrices tincidunt arcu non sodales. Pulvinar sapien et ligula ullamcorper malesuada. Quisque sagittis purus sit amet volutpat. Leo vel fringilla est ullamcorper eget nulla. Enim facilisis gravida neque convallis a cras semper. Maecenas pharetra convallis posuere morbi. Lobortis feugiat vivamus at augue eget arcu dictum. Velit ut tortor pretium viverra suspendisse potenti nullam ac tortor.",
-            },
-            {
-              title: "Model B",
-              img: "https://bafkreiftp2ccobha5u5cjxtgowyrdkblh6cfrfkp4konwkg4cbkoa3icd4.ipfs.nftstorage.link/",
-              usd: "20",
-              localfiat: "252.45",
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi lacus sed viverra tellus. Donec ultrices tincidunt arcu non sodales. Pulvinar sapien et ligula ullamcorper malesuada. Quisque sagittis purus sit amet volutpat. Leo vel fringilla est ullamcorper eget nulla. Enim facilisis gravida neque convallis a cras semper. Maecenas pharetra convallis posuere morbi. Lobortis feugiat vivamus at augue eget arcu dictum. Velit ut tortor pretium viverra suspendisse potenti nullam ac tortor.",
-            },
-            {
-              title: "Model C",
-              img: "https://bafkreiactzrm5a3uouiwxwmnzgt2ltaobjxdh3tzvkjkj23ic7swwgb7uu.ipfs.nftstorage.link/",
-              usd: "20",
-              localfiat: "252.45",
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi lacus sed viverra tellus. Donec ultrices tincidunt arcu non sodales. Pulvinar sapien et ligula ullamcorper malesuada. Quisque sagittis purus sit amet volutpat. Leo vel fringilla est ullamcorper eget nulla. Enim facilisis gravida neque convallis a cras semper. Maecenas pharetra convallis posuere morbi. Lobortis feugiat vivamus at augue eget arcu dictum. Velit ut tortor pretium viverra suspendisse potenti nullam ac tortor.",
-            },
-            {
-              title: "Model D",
-              img: "https://bafkreiecbb42s6hz7e7qzx7ppgad7hdl2cmxowzut3qzhocrmr2qijuij4.ipfs.nftstorage.link/",
-              usd: "20",
-              localfiat: "252.45",
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi lacus sed viverra tellus. Donec ultrices tincidunt arcu non sodales. Pulvinar sapien et ligula ullamcorper malesuada. Quisque sagittis purus sit amet volutpat. Leo vel fringilla est ullamcorper eget nulla. Enim facilisis gravida neque convallis a cras semper. Maecenas pharetra convallis posuere morbi. Lobortis feugiat vivamus at augue eget arcu dictum. Velit ut tortor pretium viverra suspendisse potenti nullam ac tortor.",
-            },
-            {
-              title: "Model E",
-              img: "https://bafkreiec67ylmi2fits4izxlcjhbyejaytuv73jgbyklaezwlc5e3w7k6e.ipfs.nftstorage.link/",
-              usd: "20",
-              localfiat: "252.45",
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi lacus sed viverra tellus. Donec ultrices tincidunt arcu non sodales. Pulvinar sapien et ligula ullamcorper malesuada. Quisque sagittis purus sit amet volutpat. Leo vel fringilla est ullamcorper eget nulla. Enim facilisis gravida neque convallis a cras semper. Maecenas pharetra convallis posuere morbi. Lobortis feugiat vivamus at augue eget arcu dictum. Velit ut tortor pretium viverra suspendisse potenti nullam ac tortor.",
-            },
-            {
-              title: "Model F",
-              img: "https://bafkreiax7kxyulhio2bgaceeeljhf47otlhjbjoiflsnutc6fszy3qrete.ipfs.nftstorage.link/",
-              usd: "20",
-              localfiat: "252.45",
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi lacus sed viverra tellus. Donec ultrices tincidunt arcu non sodales. Pulvinar sapien et ligula ullamcorper malesuada. Quisque sagittis purus sit amet volutpat. Leo vel fringilla est ullamcorper eget nulla. Enim facilisis gravida neque convallis a cras semper. Maecenas pharetra convallis posuere morbi. Lobortis feugiat vivamus at augue eget arcu dictum. Velit ut tortor pretium viverra suspendisse potenti nullam ac tortor.",
-            },
-            {
-              title: "Model G",
-              img: "https://bafkreideblrwed34m3rxuuzvzahmvglgpzj6vuh3q2cxq7z6vj7pyzw24e.ipfs.nftstorage.link/",
-              usd: "20",
-              localfiat: "252.45",
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi lacus sed viverra tellus. Donec ultrices tincidunt arcu non sodales. Pulvinar sapien et ligula ullamcorper malesuada. Quisque sagittis purus sit amet volutpat. Leo vel fringilla est ullamcorper eget nulla. Enim facilisis gravida neque convallis a cras semper. Maecenas pharetra convallis posuere morbi. Lobortis feugiat vivamus at augue eget arcu dictum. Velit ut tortor pretium viverra suspendisse potenti nullam ac tortor.",
-            },
-            {
-              title: "Model H",
-              img: "https://bafkreibhmgvde45fjpeh5g5p4ks254vwt2rfmjjwwk5j6xatkbajeytfi4.ipfs.nftstorage.link/",
-              usd: "20",
-              localfiat: "252.45",
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi lacus sed viverra tellus. Donec ultrices tincidunt arcu non sodales. Pulvinar sapien et ligula ullamcorper malesuada. Quisque sagittis purus sit amet volutpat. Leo vel fringilla est ullamcorper eget nulla. Enim facilisis gravida neque convallis a cras semper. Maecenas pharetra convallis posuere morbi. Lobortis feugiat vivamus at augue eget arcu dictum. Velit ut tortor pretium viverra suspendisse potenti nullam ac tortor.",
-            },
-          ],
-        },
-      ],
+      ispaypal: false,
+      ves: [],
+      dataNewCollections: [{collection: []}]
     };
+  },
+  mounted() {
+    this.fetch();
+    this.fetchVes();
   },
   methods: {
     close() {
       this.dialog = false;
     },
     open(obj) {
-      this.image = obj.img;
-      this.text = obj.text;
+      this.image = obj.imagenUrl;
+      this.text = obj.descripcion;
+      this.ispaypal = obj.ispaypal;
       this.dialog = true;
     },
+    fetch(){
+      var url = this.$api;
+      this.axios
+        .get(`${url}/lentes/`)
+        .then((res) => {
+          this.dataNewCollections[0].collection = res.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    fetchVes(){
+      var url = this.$ves;
+      this.axios
+        .post(`${url}/get-price/`, {"fiat": "VES", "crypto": "USDT"})
+        .then((res) => {
+          this.ves = res.data[0].value;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   },
 };
 </script>
