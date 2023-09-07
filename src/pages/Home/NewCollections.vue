@@ -75,7 +75,7 @@
                     <span class="text-h6"><div style="text-align: justify; padding-right: 3px;">{{ text }}</div></span>
                   </v-card>
                   <div v-if="ispaypal" style="font-weight: bold" class="mt-15">
-                    <a>
+                    <a href="https://paypal.me/DvConsultoresVE?country.x=VE&locale.x=es_XC" target="_blank">
                       <img
                         class="logo"
                         :src="`${$store.state.baseURL}themes/${$store.state.theme}/paypal.svg`"
