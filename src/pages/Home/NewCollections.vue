@@ -43,7 +43,11 @@
           <v-card-text>
             <v-row>
               <v-col cols="12" sm="6" md="6">
-                <v-img class="bg-grey-lighten-2 rounded-image-dialog mt-5" :src="image" contain></v-img>
+                <v-carousel cycle height="700" hide-delimiter-background show-arrows-on-hover>
+                  <v-carousel-item v-for="(src, i) in images" :key="i">
+                    <v-img class="bg-grey-lighten-2 rounded-image-dialog mt-5" :src="src" contain></v-img>
+                  </v-carousel-item>
+                </v-carousel>
               </v-col>
               <v-col cols="12" sm="6" md="6" class="mt-5">
                 <v-card color="var(--colorCartas3)">
@@ -74,8 +78,12 @@ export default {
     return {
       dialog: false,
       image: "",
+      image2: "",
+      image3: "",
+      image4: "",
       text: "",
       ispaypal: false,
+      images: [],
       ves: [],
       dataNewCollections: [{ collection: [] }]
     };
@@ -90,16 +98,21 @@ export default {
     },
     open(obj) {
       this.image = obj.imagenUrl;
+      this.image2 = obj.imagenUrl2;
+      this.image3 = obj.imagenUrl3;
+      this.image4 = obj.imagenUrl4;
       this.text = obj.descripcion;
       this.ispaypal = obj.ispaypal;
       this.dialog = true;
+      this.images = [this.image, this.image2, this.image3, this.image4].filter(image => image && image.trim() !== '.');
     },
     fetch() {
       var url = this.$api;
       this.axios
         .get(`${url}/lentes/`)
         .then((res) => {
-          this.dataNewCollections[0].collection = res.data;
+          // this.dataNewCollections[0].collection = res.data;
+          this.dataNewCollections[0].collection = res.data.filter(item => item.isVisible === true);
         })
         .catch((error) => {
           console.log(error);
