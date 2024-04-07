@@ -43,7 +43,7 @@
           <v-card-text>
             <v-row>
               <v-col cols="12" sm="6" md="6">
-                <v-carousel cycle height="700" hide-delimiter-background show-arrows-on-hover>
+                <v-carousel cycle hide-delimiter-background show-arrows-on-hover>
                   <v-carousel-item v-for="(src, i) in images" :key="i">
                     <v-img class="bg-grey-lighten-2 rounded-image-dialog mt-5" :src="src" contain></v-img>
                   </v-carousel-item>

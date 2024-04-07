@@ -284,10 +284,10 @@
       box-shadow: $sombra-cartas !important;
       transition: 0.2s ease-in-out;
       .images {
-        border-radius: 5%; 
+        border-radius: 2%; 
         object-fit: cover;
         width: 100%;
-        height: clamp(15em, 19vw, 19em);
+        height: auto;
       }
       .weight {
         color: #bcbcbc !important;
@@ -318,13 +318,13 @@
 ////////////////////////rounded image///////////////////////////////5
 .rounded-image {
   object-fit: cover; /* Automatically scales the image to fit the container */
-  border-radius: 5%; /* Creates rounded corners with a circular shape */
+  border-radius: 2%; /* Creates rounded corners with a circular shape */
   height: 400px !important;
 }
 
 .rounded-image-dialog {
-  object-fit: cover; /* Automatically scales the image to fit the container */
-  border-radius: 5% !important; /* Creates rounded corners with a circular shape */
+  object-fit: contain; /* Automatically scales the image to fit the container */
+  border-radius: 2% !important; /* Creates rounded corners with a circular shape */
   width: 95% !important;
   height: 85% !important;
   max-width: 100% !important;
@@ -333,7 +333,7 @@
 
 @media (max-width: 350px) {
   .rounded-image-dialog {
-    border-radius: 15%; /* Creates rounded corners with a circular shape */
+    border-radius: 2%; /* Creates rounded corners with a circular shape */
     width: 100% !important;
     height: 100% !important;
   }
