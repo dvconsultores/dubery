@@ -36,7 +36,7 @@ Vue.config.productionTip = false
 
 //Global Variables
 Vue.prototype.$api = 'https://globaldv.net/dubery-valencia/api/v1/'
-Vue.prototype.$ves = 'https://nearp2p.com:3070/api/sendmailp2p/'
+Vue.prototype.$ves = 'https://nearp2p.com/api/sendmailp2p/'
 
 new Vue({
   vuetify,
