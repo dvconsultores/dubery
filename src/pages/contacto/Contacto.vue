@@ -29,7 +29,7 @@
             </span>
             <span
               ><p class="text-h5" style="text-align: justify;">
-                Número de teléfono: Escríbenos al  <a style="color: darkgreen !important;" href="https://wa.me/584144186688"><b>Whatsapp</b></a> estaremos encantados de atenderte en horario laboral.
+                Número de teléfono: Escríbenos al  <a style="color: darkgreen !important;" href="https://wa.me/584242600968"><b>Whatsapp</b></a> estaremos encantados de atenderte en horario laboral.
               </p>
             </span>
             <span
