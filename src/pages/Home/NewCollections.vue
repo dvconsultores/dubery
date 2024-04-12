@@ -17,7 +17,7 @@
               <span class="price h7 ml-1">{{ item2.precio }} USD</span>
             </div>
           </div>
-          <span class="h7 weight tend"> ~ VES {{ item2.precio * ves }} </span>
+          <span class="h7 weight tend"> ~ VES {{ Math.round(item2.precio * ves) }} </span>
         </aside>
       </v-card>
     </aside>
